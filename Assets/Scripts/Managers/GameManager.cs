@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject ballPrefab;
     private BallManager m_ballManager;
+    public Camera m_camera;
 
     [Header("Place bombs")]
     public UnityEvent onStartPlaceBombs;
@@ -156,5 +157,37 @@ public class GameManager : MonoBehaviour
             WinGame();
         }
     }
+    public void ColocateCamera(Vector3 size, Vector3 position)
+    {
+        m_camera.transform.position = new Vector3(position.x, m_camera.transform.position.y, position.z);
+        m_camera.orthographicSize = 1;
+        Ray rayBottom = Camera.main.ScreenPointToRay(Vector3.zero);
+        Ray rayTop = Camera.main.ScreenPointToRay(new Vector3(Screen.width, Screen.height, 0));
 
+        Vector3 bottomLeft = Vector3.zero;
+        Vector3 topRight = Vector3.zero;
+
+        RaycastHit infoBottom;
+        if (Physics.Raycast(rayBottom, out infoBottom, 1000))
+        {
+            bottomLeft = infoBottom.point;
+        }
+        RaycastHit infoTop;
+        if (Physics.Raycast(rayTop, out infoTop, 1000))
+        {
+            topRight = infoTop.point;
+        }
+
+        //widht
+        float diffKnownX = topRight.x - bottomLeft.x;
+        float diffNewX = size.x + 1;
+        float newAspectRatioX = diffNewX * m_camera.orthographicSize / diffKnownX;
+
+        //height
+        float diffKnownY = topRight.z - bottomLeft.z;
+        float diffNewY = size.z + 1;
+        float newAspectRatioY = diffNewY * m_camera.orthographicSize / diffKnownY;
+
+        m_camera.orthographicSize = Mathf.Max(newAspectRatioX, newAspectRatioY);
+    }
 }
