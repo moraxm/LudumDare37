@@ -39,6 +39,9 @@ public class MazeInstantiator : MonoBehaviour {
 		// Floor texture tiling
 		floor.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2(scale.x, scale.z));
 
+		// Place camera
+		Camera.main.transform.position = new Vector3(pos.x, Camera.main.transform.position.y, pos.z);
+
         for (int i = 0; i < width; ++i) {
             for (int j = 0; j < height; ++j) {
 				yield return StartCoroutine(InstantiateTile(i, j));
