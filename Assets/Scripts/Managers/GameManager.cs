@@ -5,129 +5,147 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+  public GameObject ballPrefab;
+  private BallManager m_ballManager;
 
-    [Header("Place bombs")]
-    public UnityEvent onStartPlaceBombs;
+  [Header("Place bombs")]
+  public UnityEvent onStartPlaceBombs;
 
-    [Header("Playing")]
-    public UnityEvent onStartPlaying;
+  [Header("Playing")]
+  public UnityEvent onStartPlaying;
 
-    [Header("ShowingAward")]
-    public float m_showingAwardTime = 5.0f;
+  [Header("Win game")]
+  public float m_showingWinGame = 5.0f;
+  public UnityEvent OnWinGame;
 
-    [Header("GameOver")]
-    public UnityEvent onGameOver;
+  [Header("Lose game")]
+  public UnityEvent onLoseGame;
 
-    public enum GameState
+  public enum GameState
+  {
+    PLACE_BOMBS,
+    PLAYING,
+    WAITING_BALL,
+    WIN_GAME,
+    LOSE_GAME,
+  }
+  GameState m_gameState;
+  public GameState state
+  {
+    get { return m_gameState; }
+  }
+  float m_acumTime = 0;
+  public float acumTime
+  {
+    get { return m_acumTime; }
+  }
+
+  static GameManager m_instance;
+  public static GameManager instance
+  {
+    get
     {
-        PLACE_BOMBS,
-        PLAYING,
-        SHOWING_AWARD,
-        GAME_OVER,
+      return m_instance;
     }
-    GameState m_gameState;
-    public GameState state
+  }
+
+  public void Awake()
+  {
+    if (m_instance != null)
     {
-        get { return m_gameState; }
+      Destroy(this);
     }
-    float m_acumTime = 0;
-    public float acumTime
+    else
     {
-        get { return m_acumTime; }
+      m_instance = this;
+      DontDestroyOnLoad(this.gameObject);
     }
-    Camera m_mainCamera;
+  }
 
-    static GameManager m_instance;
-    public static GameManager instance
+
+  // Use this for initialization
+  void Start()
+  {
+    onStartPlaceBombs.Invoke();
+    m_gameState = GameState.PLACE_BOMBS;
+    m_acumTime = 0;
+    GameObject go = Instantiate(ballPrefab);
+    go.transform.position = new Vector3(0, 0, 0);
+    m_ballManager = go.GetComponent<BallManager>();
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (Input.GetKeyDown(KeyCode.Space)) StartGame();
+    switch (m_gameState)
     {
-        get
-        {
-            return m_instance;
-        }
+      case GameState.PLACE_BOMBS:
+        PlaceBombsUpdate();
+        break;
+      case GameState.PLAYING:
+        PlayingUpdate();
+        break;
+      case GameState.WAITING_BALL:
+        WaitingBallUpdate();
+        break;
+      case GameState.LOSE_GAME:
+        LoseGameUpdate();
+        break;
+      case GameState.WIN_GAME:
+        WinGameUpdate();
+        break;
+      default:
+        break;
     }
+  }
 
-    public void Awake()
+  #region states
+  private void PlayingUpdate()
+  {
+    m_acumTime += Time.deltaTime;
+    if (TNT.totalTNTs <= 0)
     {
-        if (m_instance != null)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            m_instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
+      m_gameState = GameState.WAITING_BALL;
     }
-
-
-    // Use this for initialization
-    void Start()
+  }
+  private void PlaceBombsUpdate()
+  {
+  }
+  private void WaitingBallUpdate()
+  {
+  }
+  private void LoseGameUpdate() { }
+  private void WinGameUpdate() { }
+  #endregion
+  public void StartGame()
+  {
+    m_gameState = GameState.PLAYING;
+    m_acumTime = 0;
+    onStartPlaying.Invoke();
+  }
+  public void LoseGame()
+  {
+    onLoseGame.Invoke();
+    m_gameState = GameState.LOSE_GAME;
+    m_acumTime = 0;
+  }
+  public void WinGame()
+  {
+    OnWinGame.Invoke();
+    m_gameState = GameState.WIN_GAME;
+    m_acumTime = 0;
+  }
+  public void Result(bool success)
+  {
+    if (!success)
     {
-        onStartPlaceBombs.Invoke();
-        m_mainCamera = Camera.main;
-        //m_mainCamera.enabled = false;
-        m_gameState = GameState.PLACE_BOMBS;
-        m_acumTime = 0;
+      LoseGame();
     }
-
-    // Update is called once per frame
-    void Update()
+    else
     {
-        if (Input.GetKeyDown(KeyCode.Space)) StartGame();
-        switch (m_gameState)
-        {
-            case GameState.PLACE_BOMBS:
-                PlaceBombosUpdate();
-                break;
-            case GameState.PLAYING:
-                PlayingUpdate();
-                break;
-            case GameState.SHOWING_AWARD:
-                ShowingAwardUpdate();
-                break;
-            case GameState.GAME_OVER:
-                break;
-            default:
-                break;
-        }
+      WinGame();
     }
+  }
 
-    private void ShowingAwardUpdate()
-    {
-        m_acumTime += Time.deltaTime;
-        if (m_acumTime > m_showingAwardTime)
-        {
-            m_gameState = GameState.GAME_OVER;
-        }
-    }
-
-    public void GameOver()
-    {
-        if (m_gameState == GameState.PLAYING)
-        {
-            onGameOver.Invoke();
-            m_gameState = GameState.SHOWING_AWARD;
-            m_mainCamera.enabled = false;
-            m_acumTime = 0;
-        }
-
-
-    }
-
-    private void PlayingUpdate()
-    {
-        m_acumTime += Time.deltaTime;
-    }
-
-    private void PlaceBombosUpdate()
-    {
-
-    }
-
-    public void StartGame()
-    {
-        m_gameState = GameState.PLAYING;
-        m_acumTime = 0;
-        onStartPlaying.Invoke();
-    }
 }
