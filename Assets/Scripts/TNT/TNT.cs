@@ -16,7 +16,7 @@ public class TNT : MonoBehaviour
     MouseActionsController m_mouseActions;
     private Text m_textComponent;
 
-    public GameObject explosionObject;
+    public MultipleParticlesSystem explosionObject;
 
     static int s_totalTNTs = 0;
     public static int totalTNTs
@@ -41,6 +41,7 @@ public class TNT : MonoBehaviour
         m_textComponent.text = m_explosionTime.ToString() + "s";
 
         GameManager.instance.onStartPlaying.AddListener(OnStartPlaying);
+        GameManager.instance.onStartPlaceBombs.AddListener(OnStartPlaceBombs);
     }
 
     void OnStartPlaying()
@@ -48,6 +49,13 @@ public class TNT : MonoBehaviour
         enabled = true;
     }
 
+    void OnStartPlaceBombs()
+    {
+        m_acumTime = 0;
+        m_textComponent.text = m_explosionTime.ToString() + "s";
+        m_meshRenderer.enabled = true;
+        explosionObject.Stop();
+    }
 
 
     void OnFinishMouseAction(MouseActionsController.MouseAction action)
@@ -100,11 +108,17 @@ public class TNT : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
+    public void OnDisable()
     {
         --s_totalTNTs;
+    }
+
+    public void OnDestroy()
+    {
+        
         m_mouseActions.onFinishAction -= OnFinishMouseAction;
         GameManager.instance.onStartPlaying.RemoveListener(OnStartPlaying);
+        GameManager.instance.onStartPlaceBombs.RemoveListener(OnStartPlaceBombs);
     }
 
     private void Explosion()
@@ -118,8 +132,12 @@ public class TNT : MonoBehaviour
                 rb.AddExplosionForce(m_explosion.physicForce, transform.position, m_explosion.radius);
             }
         }
+
         explosionObject.transform.parent = null;
-        explosionObject.SetActive(true);
+		explosionObject.gameObject.SetActive(true);
+		explosionObject.Play();
+		m_meshRenderer.enabled = false;
+		m_textComponent.text = "";
 
 		// TNT Sound
 		string clip = "boom";
@@ -128,6 +146,10 @@ public class TNT : MonoBehaviour
 
         Destroy(this.gameObject);
         Destroy(explosionObject.gameObject, 5);
+        explosionObject.gameObject.SetActive(true);
+        explosionObject.Play();
+        m_meshRenderer.enabled = false;
+        m_textComponent.text = "";
     }
 
     public void increaseExplosionLevel()

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4947079525403048}
   - component: {fileID: 198948928908603462}
   - component: {fileID: 199403514112965002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224322756171370416}
   - component: {fileID: 222195971206411296}
   - component: {fileID: 114813065026032406}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4875008341293162}
   - component: {fileID: 198371697116723762}
   - component: {fileID: 199364419873831078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrailsBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 23270055838880336}
   - component: {fileID: 114072484900318698}
   - component: {fileID: 114715492939932140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4165818547623664}
   - component: {fileID: 198124415934662078}
   - component: {fileID: 199749563326838304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4601492198656202}
   - component: {fileID: 198971829955624730}
   - component: {fileID: 199907235850323240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4782216738791476}
   - component: {fileID: 198392980431424580}
   - component: {fileID: 199253649410387076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4039055807769418}
   - component: {fileID: 198223994392853698}
   - component: {fileID: 199811074152607882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrailsWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4100054402205850}
   - component: {fileID: 198295736881780298}
   - component: {fileID: 199594547234033860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokeBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4747121515471692}
   - component: {fileID: 198883752147705042}
   - component: {fileID: 199355490443858578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4575081160520322}
   - component: {fileID: 198445078399400382}
   - component: {fileID: 199391740723889894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 114773366114616980}
   - component: {fileID: 114463857059329902}
   - component: {fileID: 114158135227137006}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,8 @@ GameObject:
   - component: {fileID: 4673441592073304}
   - component: {fileID: 114407739959315410}
   - component: {fileID: 114412220774726462}
-  m_Layer: 0
+  - component: {fileID: 114127671796819174}
+  m_Layer: 8
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +458,18 @@ MonoBehaviour:
     physicForce: 0
     color: {r: 0, g: 0, b: 0, a: 0}
   m_explosionTime: 0
-  explosionObject: {fileID: 1881945102327664}
+  explosionObject: {fileID: 114127671796819174}
+--- !u!114 &114127671796819174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881945102327664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c186fdb60899f49960f0bf05e91745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114158135227137006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24157,7 +24169,7 @@ RectTransform:
   m_GameObject: {fileID: 1653720396015034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 1}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children:
   - {fileID: 224322756171370416}
   m_Father: {fileID: 4653943750588990}
@@ -24165,7 +24177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.04}
+  m_AnchoredPosition: {x: 0, y: 2.39}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224322756171370416

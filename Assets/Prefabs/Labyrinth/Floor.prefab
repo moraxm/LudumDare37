@@ -105,4 +105,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1262345236131006, guid: cb2dd1c3648b5034db089e209ec0d178, type: 2}
-  maxTNTs: 3
+  maxTNTs: 10

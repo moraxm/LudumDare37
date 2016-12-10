@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 23843820161658772}
   - component: {fileID: 114340111911426014}
   - component: {fileID: 54069961721063772}
-  - component: {fileID: 114860419520209706}
-  m_Layer: 0
+  - component: {fileID: 114345822056446298}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inTrigger: 0
   minVelocity: 0
---- !u!114 &114860419520209706
+--- !u!114 &114345822056446298
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
