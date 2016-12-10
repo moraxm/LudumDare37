@@ -28,10 +28,10 @@ public class MazeInstantiator : MonoBehaviour
         {
             Debug.LogError("[MazeInstantiator.cs] Error. Missing a public property in MazeInstantiator");
         }
-        StartCoroutine(InstantiateMaze());
+        InstantiateMaze();
     }
 
-    private IEnumerator InstantiateMaze()
+    private void InstantiateMaze()
     {
         mazeManager = new MazeManager(width, height);
         mazeManager.Build();
@@ -60,7 +60,7 @@ public class MazeInstantiator : MonoBehaviour
         {
             for (int j = 0; j < height; ++j)
             {
-                yield return StartCoroutine(InstantiateTile(i, j));
+                InstantiateTile(i, j);
                 if (i == endLineX && j == endLineY)
                 {
                     InstantiateEndLine();
@@ -69,7 +69,7 @@ public class MazeInstantiator : MonoBehaviour
         }
     }
 
-    private IEnumerator InstantiateTile(int i, int j)
+    private void InstantiateTile(int i, int j)
     {
         GameObject tile = tilePrefab ? Instantiate(tilePrefab) as GameObject : new GameObject();
         if (tile)
@@ -80,26 +80,26 @@ public class MazeInstantiator : MonoBehaviour
             tile.name = "Tile" + i.ToString() + "_" + j.ToString();
             if (mazeManager.Maze[i, j].Left)
             {
-                yield return StartCoroutine(CreateWall(i, j, ORIENTATION.LEFT, tile));
+                CreateWall(i, j, ORIENTATION.LEFT, tile);
             }
             if (mazeManager.Maze[i, j].Right)
             {
-                yield return StartCoroutine(CreateWall(i, j, ORIENTATION.RIGHT, tile));
+                CreateWall(i, j, ORIENTATION.RIGHT, tile);
             }
             if (mazeManager.Maze[i, j].Top)
             {
-                yield return StartCoroutine(CreateWall(i, j, ORIENTATION.TOP, tile));
+                CreateWall(i, j, ORIENTATION.TOP, tile);
             }
             if (mazeManager.Maze[i, j].Bottom)
             {
-                yield return StartCoroutine(CreateWall(i, j, ORIENTATION.BOTTOM, tile));
+                CreateWall(i, j, ORIENTATION.BOTTOM, tile);
             }
 
-            yield return StartCoroutine(CreateCorners(i, j, tile));
+			CreateCorners(i, j, tile);
         }
     }
 
-    private IEnumerator CreateCorners(int i, int j, GameObject tile)
+    private void CreateCorners(int i, int j, GameObject tile)
     {
         GameObject corner = Instantiate(cornerPrefab, tile.transform) as GameObject;
         corner.transform.localScale = new Vector3(1.0f / tileSize.x, mazeHeight, 1.0f / tileSize.y);
@@ -120,11 +120,9 @@ public class MazeInstantiator : MonoBehaviour
         corner.transform.localScale = new Vector3(1.0f / tileSize.x, mazeHeight, 1.0f / tileSize.y);
         corner.transform.localPosition = new Vector3(((tileSize.x / 2.0f) - (corner.GetComponent<MeshRenderer>().bounds.size.x / 2.0f)) / tile.transform.localScale.x, 0.0f, ((-tileSize.y / 2.0f) + (corner.GetComponent<MeshRenderer>().bounds.size.z / 2.0f)) / tile.transform.localScale.z);
         corner.name = "CornerLowerRight";
-
-        yield return null;
     }
 
-    private IEnumerator CreateWall(int i, int j, ORIENTATION orientation, GameObject tile)
+    private void CreateWall(int i, int j, ORIENTATION orientation, GameObject tile)
     {
         GameObject wall = Instantiate(wallPrefab, tile.transform) as GameObject;
 
@@ -156,8 +154,6 @@ public class MazeInstantiator : MonoBehaviour
         }
         wall.transform.localPosition = pos;
         wall.name = "Wall" + orientation.ToString();
-
-        yield return null;
     }
 
     private void InstantiateEndLine()
