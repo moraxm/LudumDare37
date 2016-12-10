@@ -120,6 +120,12 @@ public class TNT : MonoBehaviour
         }
         explosionObject.transform.parent = null;
         explosionObject.SetActive(true);
+
+		// TNT Sound
+		string clip = "boom";
+		clip += (Random.Range(1, 4)).ToString();
+		UtilSound.instance.PlaySound(clip);
+
         Destroy(this.gameObject);
         Destroy(explosionObject.gameObject, 5);
     }
