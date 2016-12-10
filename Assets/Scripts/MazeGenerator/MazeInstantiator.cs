@@ -6,7 +6,7 @@ enum ORIENTATION {LEFT, RIGHT, TOP, BOTTOM};
 
 public class MazeInstantiator : MonoBehaviour {
 
-    private Cell[,] maze = null;
+	private MazeManager mazeManager = null;
 
     public int width = 5;
     public int height = 5;
@@ -26,7 +26,8 @@ public class MazeInstantiator : MonoBehaviour {
 	}
 	
     private IEnumerator InstantiateMaze () {
-        maze = MazeManager.Build(width, height);
+		mazeManager = new MazeManager(width, height);
+        mazeManager.Build();
         for (int i = 0; i < width; ++i) {
             for (int j = 0; j < height; ++j) {
 				yield return StartCoroutine(InstantiateTile(i, j));
@@ -41,16 +42,16 @@ public class MazeInstantiator : MonoBehaviour {
             tile.transform.localPosition = new Vector3(origin.x + i * tileSize.x, yPositionForWholeMaze, origin.y - j * tileSize.y); // Each row is placed in a deeper -Z
 			tile.transform.localScale = new Vector3(tileSize.x, 1.0f, tileSize.y);
             tile.name = "Tile" + i.ToString() + "_" + j.ToString();
-            if (maze[i, j].Left) {
+			if (mazeManager.Maze[i, j].Left) {
 				yield return StartCoroutine(CreateWall(i, j, ORIENTATION.LEFT, tile));
 			}
-            if (maze[i, j].Right) {
+			if (mazeManager.Maze[i, j].Right) {
 				yield return StartCoroutine(CreateWall(i, j, ORIENTATION.RIGHT, tile));
             }
-            if (maze[i, j].Top) {
+			if (mazeManager.Maze[i, j].Top) {
 				yield return StartCoroutine(CreateWall(i, j, ORIENTATION.TOP, tile));
             }
-            if (maze[i, j].Bottom) {
+			if (mazeManager.Maze[i, j].Bottom) {
 				yield return StartCoroutine(CreateWall(i, j, ORIENTATION.BOTTOM, tile));
             }
         }
