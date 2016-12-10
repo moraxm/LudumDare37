@@ -25,7 +25,6 @@ public class TNT : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        ++s_totalTNTs;
         m_explosions = FindObjectOfType<Explosions>();
         if (!m_explosions) Debug.LogError("No Explisions object in the scene!");
         enabled = false;
@@ -39,6 +38,7 @@ public class TNT : MonoBehaviour
 
         m_textComponent = GetComponentInChildren<Text>();
         m_textComponent.text = m_explosionTime.ToString() + "s";
+        m_textComponent.color = m_explosion.color;
 
         GameManager.instance.onStartPlaying.AddListener(OnStartPlaying);
         GameManager.instance.onStartPlaceBombs.AddListener(OnStartPlaceBombs);
@@ -169,11 +169,13 @@ public class TNT : MonoBehaviour
                 break;
         }
         m_meshRenderer.material.SetColor("_Color", m_explosion.color);
+        m_textComponent.color = m_explosion.color;
     }
 
     public void OnEnable()
     {
         m_acumTime = 0;
+        ++s_totalTNTs;
     }
 
 
