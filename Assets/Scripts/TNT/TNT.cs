@@ -37,6 +37,13 @@ public class TNT : MonoBehaviour
 
         m_textComponent = GetComponentInChildren<Text>();
         m_textComponent.text = m_explosionTime.ToString() + "s";
+
+        GameManager.instance.onStartPlaying.AddListener(OnStartPlaying);
+    }
+
+    void OnStartPlaying()
+    {
+        enabled = true;
     }
 
     void OnFinishMouseAction(MouseActionsController.MouseAction action)
@@ -92,6 +99,7 @@ public class TNT : MonoBehaviour
     {
         --s_totalTNTs;
         m_mouseActions.onFinishAction -= OnFinishMouseAction;
+        GameManager.instance.onStartPlaying.RemoveListener(OnStartPlaying);
     }
 
     private void Explosion()
