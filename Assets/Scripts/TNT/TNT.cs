@@ -27,6 +27,7 @@ public class TNT : MonoBehaviour
     {
         m_explosions = FindObjectOfType<Explosions>();
         if (!m_explosions) Debug.LogError("No Explisions object in the scene!");
+        s_totalTNTs += 2;
         enabled = false;
         m_acumTime = 0;
         m_explosion = m_explosions.lowLevelExplosion;
