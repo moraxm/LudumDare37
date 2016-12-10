@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 enum ORIENTATION {LEFT, RIGHT, TOP, BOTTOM};
@@ -28,6 +29,13 @@ public class MazeInstantiator : MonoBehaviour {
     private IEnumerator InstantiateMaze () {
 		mazeManager = new MazeManager(width, height);
         mazeManager.Build();
+
+		Vector3 pos = new Vector3(origin.x + (width-1) * tileSize.x / 2.0f, 0.0f, origin.y - (height-1) * tileSize.y / 2.0f);
+		GameObject floor = Instantiate(floorPrefab, this.gameObject.transform) as GameObject;
+		floor.transform.localPosition = pos;
+		floor.transform.localScale = new Vector3(width * tileSize.x, 0.1f, height * tileSize.y);
+		floor.name = "Floor";
+
         for (int i = 0; i < width; ++i) {
             for (int j = 0; j < height; ++j) {
 				yield return StartCoroutine(InstantiateTile(i, j));
@@ -64,10 +72,11 @@ public class MazeInstantiator : MonoBehaviour {
 		// Calculate Scale
 		Vector3 scale = Vector3.one;
 		if (orientation == ORIENTATION.LEFT || orientation == ORIENTATION.RIGHT) {
-			scale.x = 0.15f;
+			scale.x = 0.2f;
 		} else {
-			scale.z = 0.15f;
+			scale.z = 0.2f;
 		}
+		scale.y = 2.0f;
 		wall.transform.localScale = scale; 
 
 		// Calculate Position
