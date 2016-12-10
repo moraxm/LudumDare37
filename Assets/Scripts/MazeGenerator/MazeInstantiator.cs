@@ -48,9 +48,9 @@ public class MazeInstantiator : MonoBehaviour
         floor.name = "Floor";
         // Floor texture tiling
         floor.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2(scale.x, scale.z));
-
         // Place camera
         Camera.main.transform.position = new Vector3(pos.x, Camera.main.transform.position.y, pos.z);
+        GameManager.instance.ColocateCamera(floor.GetComponent<Renderer>().bounds.size, pos);
 
         int endLineX = width - 1;
         int endLineY = height - 1;
