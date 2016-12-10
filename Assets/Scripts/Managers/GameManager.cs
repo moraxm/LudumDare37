@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         onStartShowingStructure.Invoke();
         m_mainCamera = Camera.main;
-        m_mainCamera.enabled = false;
+        //m_mainCamera.enabled = false;
         m_gameState = GameState.INTRO;
         m_acumTime = 0;
     }
