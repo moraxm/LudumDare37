@@ -147,7 +147,29 @@ MonoBehaviour:
   ballPrefab: {fileID: 1962502266293768, guid: 9b1dbe1cebe5a934ba95cb03cde1bcb6, type: 2}
   onStartPlaceBombs:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704213578}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 991037170}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onStartPlaying:
@@ -163,6 +185,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 991037170}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -466,11 +499,16 @@ Prefab:
     - target: {fileID: 114751333744873018, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: Retry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ed7568cc27cc946986762b0ab60f49, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &991037170 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1902578759672374, guid: 66ed7568cc27cc946986762b0ab60f49,
+    type: 2}
+  m_PrefabInternal: {fileID: 991037169}
 --- !u!1 &1024845609
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +648,7 @@ MonoBehaviour:
     type: 2}
   floorPrefab: {fileID: 1575816840277404, guid: bf36d911183a1b74ca8fcc9ea5d11999,
     type: 2}
-  tilePrefab: {fileID: 0}
+  endLinePrefab: {fileID: 0}
 --- !u!4 &1470393476
 Transform:
   m_ObjectHideFlags: 0
