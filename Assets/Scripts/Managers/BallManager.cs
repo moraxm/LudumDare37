@@ -38,6 +38,7 @@ public class BallManager : MonoBehaviour
         if (m_rigidbody.velocity.magnitude <= minVelocity)
         {
             EndGame();
+            m_waitForStop = false;
         }
     }
 
