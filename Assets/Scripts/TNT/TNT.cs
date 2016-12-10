@@ -16,6 +16,8 @@ public class TNT : MonoBehaviour
     MouseActionsController m_mouseActions;
     private Text m_textComponent;
 
+    public GameObject explosionObject;
+
     static int s_totalTNTs = 0;
     public static int totalTNTs
     { get { return s_totalTNTs; } }
@@ -45,6 +47,8 @@ public class TNT : MonoBehaviour
     {
         enabled = true;
     }
+
+
 
     void OnFinishMouseAction(MouseActionsController.MouseAction action)
     {
@@ -88,6 +92,7 @@ public class TNT : MonoBehaviour
     void Update()
     {
         m_acumTime += Time.deltaTime;
+        m_textComponent.text = (m_explosionTime - m_acumTime).ToString() + "s";
         if (m_acumTime >= m_explosionTime)
         {
             Explosion();
@@ -113,6 +118,10 @@ public class TNT : MonoBehaviour
                 rb.AddExplosionForce(m_explosion.physicForce, transform.position, m_explosion.radius);
             }
         }
+        explosionObject.transform.parent = null;
+        explosionObject.SetActive(true);
+        Destroy(this.gameObject);
+        Destroy(explosionObject.gameObject, 5);
     }
 
     public void increaseExplosionLevel()
