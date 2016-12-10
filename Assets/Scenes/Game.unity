@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb52311fad26fd408a99bb8d83f5da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 1962502266293768, guid: 9b1dbe1cebe5a934ba95cb03cde1bcb6, type: 2}
   onStartPlaceBombs:
     m_PersistentCalls:
       m_Calls: []
@@ -254,21 +255,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  m_showingAwardTime: 5
-  onGameOver:
+  m_showingWinGame: 5
+  OnWinGame:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 465784265}
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MainMenu
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onLoseGame:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1001 &513854145
@@ -537,7 +532,8 @@ MonoBehaviour:
   wallPrefab: {fileID: 1673207594089870, guid: 0509e4279bf0ba240a41e8b63db15908, type: 2}
   floorPrefab: {fileID: 1575816840277404, guid: bf36d911183a1b74ca8fcc9ea5d11999,
     type: 2}
-  tilePrefab: {fileID: 0}
+  endLinePrefab: {fileID: 1140780778170100, guid: e2cdb21b7b965a041b31e946242b0abd,
+    type: 2}
 --- !u!4 &1470393476
 Transform:
   m_ObjectHideFlags: 0
