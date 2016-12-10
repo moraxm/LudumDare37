@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
     }
     public void Result(bool success)
     {
-        if(m_gameState != GameState.PLAYING)
+        if(m_gameState != GameState.WAITING_BALL)
         {
             return;
         }
