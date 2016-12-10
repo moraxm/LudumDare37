@@ -760,6 +760,9 @@ MonoBehaviour:
     type: 2}
   endLinePrefab: {fileID: 1140780778170100, guid: e2cdb21b7b965a041b31e946242b0abd,
     type: 2}
+  backgroundPrefab: {fileID: 1507331081544964, guid: eb0d9bf3eb2cb724098dc74480ea8815,
+    type: 2}
+  tilePrefab: {fileID: 0}
 --- !u!4 &1470393476
 Transform:
   m_ObjectHideFlags: 0

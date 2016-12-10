@@ -150,6 +150,10 @@ public class GameManager : MonoBehaviour
     }
     public void Result(bool success)
     {
+        if(m_gameState != GameState.PLAYING)
+        {
+            return;
+        }
         if (!success)
         {
             LoseGame();

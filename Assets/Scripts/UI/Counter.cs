@@ -16,7 +16,7 @@ public class Counter : MonoBehaviour {
 	void Update () 
     {
         if (GameManager.instance.state == GameManager.GameState.PLAYING)
-            m_textComponent.text = GameManager.instance.acumTime.ToString();
+            m_textComponent.text = "Time: " + GameManager.instance.acumTime.ToString("0.00");
         else
             m_textComponent.text = "";
 	}

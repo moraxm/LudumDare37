@@ -16,6 +16,7 @@ public class BallManager : MonoBehaviour
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        m_waitForStop = false;
     }
 
     void OnTriggerEnter(Collider other)

@@ -19,12 +19,13 @@ public class MazeInstantiator : MonoBehaviour
     public GameObject cornerPrefab = null;
     public GameObject floorPrefab = null;
     public GameObject endLinePrefab = null;
-    private GameObject tilePrefab = null;
+	public GameObject backgroundPrefab = null;
+	public GameObject tilePrefab = null;
 
     // Use this for initialization
     void Start()
     {
-        if (!wallPrefab || !cornerPrefab || !floorPrefab || width <= 0 || height <= 0 || tileSize.x <= 0.0f || tileSize.y <= 0.0f || mazeHeight < 0.0f)
+        if (!wallPrefab || !cornerPrefab || !floorPrefab || !endLinePrefab || !backgroundPrefab || width <= 0 || height <= 0 || tileSize.x <= 0.0f || tileSize.y <= 0.0f || mazeHeight < 0.0f)
         {
             Debug.LogError("[MazeInstantiator.cs] Error. Missing a public property in MazeInstantiator");
         }
@@ -48,8 +49,17 @@ public class MazeInstantiator : MonoBehaviour
         floor.name = "Floor";
         // Floor texture tiling
         floor.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2(scale.x, scale.z));
+
+		// Instantiate Background
+		GameObject background = Instantiate(backgroundPrefab, this.gameObject.transform) as GameObject;
+		pos.y -= 0.1f; // Background is a little lower than the floor
+		background.transform.localPosition = pos;
+		background.transform.localScale = scale;
+		background.name = "Background";
+		// Background texture tiling
+		background.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2(scale.x, scale.z));
+
         // Place camera
-        Camera.main.transform.position = new Vector3(pos.x, Camera.main.transform.position.y, pos.z);
         GameManager.instance.ColocateCamera(floor.GetComponent<Renderer>().bounds.size, pos);
 
         int endLineX = width - 1;
