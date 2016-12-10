@@ -648,7 +648,8 @@ MonoBehaviour:
     type: 2}
   floorPrefab: {fileID: 1575816840277404, guid: bf36d911183a1b74ca8fcc9ea5d11999,
     type: 2}
-  endLinePrefab: {fileID: 0}
+  endLinePrefab: {fileID: 1140780778170100, guid: e2cdb21b7b965a041b31e946242b0abd,
+    type: 2}
 --- !u!4 &1470393476
 Transform:
   m_ObjectHideFlags: 0

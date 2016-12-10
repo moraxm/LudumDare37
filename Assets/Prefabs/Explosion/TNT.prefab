@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 4673441592073304}
   - component: {fileID: 114407739959315410}
   - component: {fileID: 114412220774726462}
+  - component: {fileID: 114127671796819174}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -457,7 +458,18 @@ MonoBehaviour:
     physicForce: 0
     color: {r: 0, g: 0, b: 0, a: 0}
   m_explosionTime: 0
-  explosionObject: {fileID: 1881945102327664}
+  explosionObject: {fileID: 114127671796819174}
+--- !u!114 &114127671796819174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881945102327664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c186fdb60899f49960f0bf05e91745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114158135227137006
 MonoBehaviour:
   m_ObjectHideFlags: 1

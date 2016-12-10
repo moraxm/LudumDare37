@@ -16,7 +16,7 @@ public class TNT : MonoBehaviour
     MouseActionsController m_mouseActions;
     private Text m_textComponent;
 
-    public GameObject explosionObject;
+    public MultipleParticlesSystem explosionObject;
 
     static int s_totalTNTs = 0;
     public static int totalTNTs
@@ -51,7 +51,8 @@ public class TNT : MonoBehaviour
 
     void OnStartPlaceBombs()
     {
-        gameObject.SetActive(true);
+        m_meshRenderer.enabled = true;
+        explosionObject.Stop();
     }
 
 
@@ -124,10 +125,9 @@ public class TNT : MonoBehaviour
                 rb.AddExplosionForce(m_explosion.physicForce, transform.position, m_explosion.radius);
             }
         }
-        explosionObject.transform.parent = null;
-        explosionObject.SetActive(true);
-        gameObject.SetActive(false);
-        Destroy(explosionObject.gameObject, 5);
+        explosionObject.gameObject.SetActive(true);
+        explosionObject.Play();
+        m_meshRenderer.enabled = false;
     }
 
     public void increaseExplosionLevel()
