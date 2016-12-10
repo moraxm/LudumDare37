@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 114357826199622156}
   - component: {fileID: 114503717101359740}
   - component: {fileID: 114698149644855870}
+  - component: {fileID: 114697084014296766}
+  - component: {fileID: 114466269209828248}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -340,7 +342,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114503717101359740}
+      - m_Target: {fileID: 114697084014296766}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -421,6 +423,17 @@ MonoBehaviour:
     time: 5
   - message: Change the explosion force by clicking a bomb
     time: 0
+--- !u!114 &114466269209828248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396256793997810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7229d775b2369143b750f2b191056ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114503717101359740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,6 +478,17 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 0
   m_Text: Play
+--- !u!114 &114697084014296766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396256793997810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95749bf59df8b084a8cedec8044ba75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114698149644855870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,18 +521,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Drag and drop a bomb to change the explosion time
 --- !u!114 &114751333744873018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,7 +583,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114503717101359740}
+      - m_Target: {fileID: 114697084014296766}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:

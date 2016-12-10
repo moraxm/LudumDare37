@@ -52,7 +52,6 @@ public class MouseActionsController : MonoBehaviour
 
     private bool CheckDrag()
     {
-        Debug.Log(Input.mousePosition.y - m_prevMousePosition.y);
         bool toReturn = false;
         if (m_acumTime < m_minTimeToDrag) return toReturn;
 

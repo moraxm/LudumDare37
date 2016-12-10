@@ -27,7 +27,7 @@ public class TNT : MonoBehaviour
     {
         m_explosions = FindObjectOfType<Explosions>();
         if (!m_explosions) Debug.LogError("No Explisions object in the scene!");
-        s_totalTNTs += 2;
+        ++s_totalTNTs;
         enabled = false;
         m_acumTime = 0;
         m_explosion = m_explosions.lowLevelExplosion;
@@ -50,18 +50,29 @@ public class TNT : MonoBehaviour
         enabled = true;
     }
 
+    void DisableComponents(bool disable)
+    {
+        m_textComponent.text = disable ? "" : m_explosionTime.ToString() + "s"; ;
+        m_meshRenderer.enabled = !disable;
+        if (disable)
+            --s_totalTNTs;
+        else
+            ++s_totalTNTs;
+
+        Debug.Log("Total Tnts: " + totalTNTs);
+    }
+
     void OnStartPlaceBombs()
     {
         m_acumTime = 0;
-        m_textComponent.text = m_explosionTime.ToString() + "s";
-        m_meshRenderer.enabled = true;
+        DisableComponents(false);
         explosionObject.Stop();
     }
 
 
     void OnFinishMouseAction(MouseActionsController.MouseAction action)
     {
-        Debug.Log(action);
+
         switch (action)
         {
             case MouseActionsController.MouseAction.HOLD:
@@ -106,17 +117,18 @@ public class TNT : MonoBehaviour
         {
             Explosion();
             enabled = false;
+            DisableComponents(true);
         }
     }
 
     public void OnDisable()
     {
-        --s_totalTNTs;
+        
     }
 
     public void OnDestroy()
     {
-        
+        DisableComponents(true);
         m_mouseActions.onFinishAction -= OnFinishMouseAction;
         GameManager.instance.onStartPlaying.RemoveListener(OnStartPlaying);
         GameManager.instance.onStartPlaceBombs.RemoveListener(OnStartPlaceBombs);
@@ -134,23 +146,13 @@ public class TNT : MonoBehaviour
             }
         }
 
-        explosionObject.transform.parent = null;
 		explosionObject.gameObject.SetActive(true);
 		explosionObject.Play();
-		m_meshRenderer.enabled = false;
-		m_textComponent.text = "";
 
 		// TNT Sound
 		string clip = "boom";
 		clip += (Random.Range(1, 4)).ToString();
 		UtilSound.instance.PlaySound(clip);
-
-        Destroy(this.gameObject);
-        Destroy(explosionObject.gameObject, 5);
-        explosionObject.gameObject.SetActive(true);
-        explosionObject.Play();
-        m_meshRenderer.enabled = false;
-        m_textComponent.text = "";
     }
 
     public void increaseExplosionLevel()
@@ -176,7 +178,6 @@ public class TNT : MonoBehaviour
     public void OnEnable()
     {
         m_acumTime = 0;
-        ++s_totalTNTs;
     }
 
 
