@@ -41,6 +41,7 @@ public class TNT : MonoBehaviour
         m_textComponent.text = m_explosionTime.ToString() + "s";
 
         GameManager.instance.onStartPlaying.AddListener(OnStartPlaying);
+        GameManager.instance.onStartPlaceBombs.AddListener(OnStartPlaceBombs);
     }
 
     void OnStartPlaying()
@@ -48,6 +49,10 @@ public class TNT : MonoBehaviour
         enabled = true;
     }
 
+    void OnStartPlaceBombs()
+    {
+        gameObject.SetActive(true);
+    }
 
 
     void OnFinishMouseAction(MouseActionsController.MouseAction action)
@@ -105,6 +110,7 @@ public class TNT : MonoBehaviour
         --s_totalTNTs;
         m_mouseActions.onFinishAction -= OnFinishMouseAction;
         GameManager.instance.onStartPlaying.RemoveListener(OnStartPlaying);
+        GameManager.instance.onStartPlaceBombs.RemoveListener(OnStartPlaceBombs);
     }
 
     private void Explosion()
@@ -120,7 +126,7 @@ public class TNT : MonoBehaviour
         }
         explosionObject.transform.parent = null;
         explosionObject.SetActive(true);
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
         Destroy(explosionObject.gameObject, 5);
     }
 
