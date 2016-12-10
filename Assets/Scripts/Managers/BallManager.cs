@@ -10,7 +10,7 @@ public class BallManager : MonoBehaviour
   private bool m_waitForStop;
   public bool WaitForStop
   {
-    set { WaitForStop = value; }
+    set { m_waitForStop = value; }
   }
 
   void Start()
