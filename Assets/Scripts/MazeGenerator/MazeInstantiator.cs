@@ -21,7 +21,7 @@ public class MazeInstantiator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (!wallPrefab || !cornerPrefab || !floorPrefab || !tilePrefab || width <= 0 || height <= 0 || tileSize.x <= 0.0f || tileSize.y <= 0.0f || mazeHeight < 0.0f) {
+		if (!wallPrefab || !cornerPrefab || !floorPrefab || width <= 0 || height <= 0 || tileSize.x <= 0.0f || tileSize.y <= 0.0f || mazeHeight < 0.0f) {
 			Debug.LogError("[MazeInstantiator.cs] Error. Missing a public property in MazeInstantiator");
 		}
 		StartCoroutine(InstantiateMaze());

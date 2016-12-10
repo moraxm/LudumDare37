@@ -17,6 +17,7 @@ public class BuildPlane : MonoBehaviour {
 
     public void OnMouseDown()
     {
+        if (GameManager.instance.state != GameManager.GameState.PLACE_BOMBS) return;
         Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(pos.origin,pos.direction,Color.red,100);
         RaycastHit info;
