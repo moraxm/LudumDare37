@@ -83,7 +83,7 @@ public class MazeManager
     finalWalls = new List<Wall>();
     BuildMaze();
     BuildStructure();
-    PrintMaze();
+    //PrintMaze();
   }
 
   private void GetBuildCells()
