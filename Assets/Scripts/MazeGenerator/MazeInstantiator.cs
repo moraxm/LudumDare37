@@ -64,6 +64,14 @@ public class MazeInstantiator : MonoBehaviour
 
         int endLineX = width - 1;
         int endLineY = height - 1;
+		// Reusing variables for End line
+		scale.x = tileSize.x;
+		scale.y = 0.025f;
+		scale.z = tileSize.y;
+
+		pos.x = origin.x + (width - 1) * tileSize.x;
+		pos.y += 0.14f;
+		pos.z = origin.y + (height - 1) * tileSize.y;
 
         // Instantiate Tiles
         for (int i = 0; i < width; ++i)
@@ -71,9 +79,13 @@ public class MazeInstantiator : MonoBehaviour
             for (int j = 0; j < height; ++j)
             {
                 InstantiateTile(i, j);
+				// Instantiate end line
                 if (i == endLineX && j == endLineY)
                 {
-                    InstantiateEndLine();
+					GameObject endLine = Instantiate(endLinePrefab, this.gameObject.transform) as GameObject;
+					endLine.transform.localScale = scale;
+					endLine.transform.localPosition = pos;
+					endLine.name = "End Line";
                 }
             }
         }
@@ -164,17 +176,6 @@ public class MazeInstantiator : MonoBehaviour
         }
         wall.transform.localPosition = pos;
         wall.name = "Wall" + orientation.ToString();
-    }
-
-    private void InstantiateEndLine()
-    {
-        GameObject endLine = Instantiate(endLinePrefab) as GameObject;
-        Vector3 scale = Vector3.one;
-        scale.x = tileSize.x;
-        scale.z = tileSize.y;
-        endLine.transform.localScale = scale;
-        endLine.name = "End Line";
-        endLine.transform.localPosition = new Vector3(origin.x + (width - 1) * tileSize.x, 0, origin.y + (height - 1) * tileSize.y);
     }
 
 }
