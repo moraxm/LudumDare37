@@ -30,11 +30,14 @@ public class MazeInstantiator : MonoBehaviour {
 		mazeManager = new MazeManager(width, height);
         mazeManager.Build();
 
-		Vector3 pos = new Vector3(origin.x + (width-1) * tileSize.x / 2.0f, 0.0f, origin.y - (height-1) * tileSize.y / 2.0f);
+		Vector3 pos = new Vector3(origin.x + (width-1) * tileSize.x / 2.0f, 0.0f, origin.y + (height-1) * tileSize.y / 2.0f);
 		GameObject floor = Instantiate(floorPrefab, this.gameObject.transform) as GameObject;
 		floor.transform.localPosition = pos;
-		floor.transform.localScale = new Vector3(width * tileSize.x, 0.1f, height * tileSize.y);
+		Vector3 scale = new Vector3(width * tileSize.x, 0.1f, height * tileSize.y);
+		floor.transform.localScale = scale;
 		floor.name = "Floor";
+		// Floor texture tiling
+		floor.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2(scale.x, scale.z));
 
         for (int i = 0; i < width; ++i) {
             for (int j = 0; j < height; ++j) {
@@ -47,7 +50,7 @@ public class MazeInstantiator : MonoBehaviour {
 		GameObject tile = tilePrefab ? Instantiate(tilePrefab) as GameObject : new GameObject();
         if (tile) {
             tile.transform.parent = this.gameObject.transform;
-            tile.transform.localPosition = new Vector3(origin.x + i * tileSize.x, yPositionForWholeMaze, origin.y - j * tileSize.y); // Each row is placed in a deeper -Z
+            tile.transform.localPosition = new Vector3(origin.x + i * tileSize.x, yPositionForWholeMaze, origin.y + j * tileSize.y); // Each row is placed in a deeper -Z
 			tile.transform.localScale = new Vector3(tileSize.x, 1.0f, tileSize.y);
             tile.name = "Tile" + i.ToString() + "_" + j.ToString();
 			if (mazeManager.Maze[i, j].Left) {
