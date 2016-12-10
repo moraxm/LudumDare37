@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
     }
     GameState m_gameState;
+    public GameState state
+    {
+        get { return m_gameState; }
+    }
     float m_acumTime = 0;
     Camera m_mainCamera;
 
