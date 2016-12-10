@@ -125,6 +125,15 @@ public class GameManager : MonoBehaviour
         m_acumTime = 0;
         onStartPlaying.Invoke();
     }
+    public void Retry()
+    {
+        if (m_gameState == GameState.PLAYING)
+        {
+            m_gameState = GameState.PLACE_BOMBS;
+            onStartPlaceBombs.Invoke();
+            m_ballManager.transform.position = Vector3.zero;
+        }
+    }
     public void LoseGame()
     {
         onLoseGame.Invoke();
@@ -152,7 +161,6 @@ public class GameManager : MonoBehaviour
     {
         m_camera.transform.position = new Vector3(position.x, m_camera.transform.position.y, position.z);
         m_camera.orthographicSize = 1;
-
         Ray rayBottom = Camera.main.ScreenPointToRay(Vector3.zero);
         Ray rayTop = Camera.main.ScreenPointToRay(new Vector3(Screen.width, Screen.height, 0));
 
@@ -181,6 +189,5 @@ public class GameManager : MonoBehaviour
         float newAspectRatioY = diffNewY * m_camera.orthographicSize / diffKnownY;
 
         m_camera.orthographicSize = Mathf.Max(newAspectRatioX, newAspectRatioY);
-
     }
 }
