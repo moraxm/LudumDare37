@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
         if (TNT.totalTNTs <= 0)
         {
             m_gameState = GameState.WAITING_BALL;
+            m_ballManager.WaitForStop = true;
         }
     }
     private void PlaceBombsUpdate()
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour
     }
     public void Retry()
     {
-        if (m_gameState == GameState.PLAYING)
+        if (m_gameState != GameState.PLACE_BOMBS)
         {
             m_gameState = GameState.PLACE_BOMBS;
             onStartPlaceBombs.Invoke();

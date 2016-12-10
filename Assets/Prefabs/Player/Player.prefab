@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inTrigger: 0
-  minVelocity: 0
+  minVelocity: 1
 --- !u!114 &114345822056446298
 MonoBehaviour:
   m_ObjectHideFlags: 1
