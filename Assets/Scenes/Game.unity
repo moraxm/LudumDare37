@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb52311fad26fd408a99bb8d83f5da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 1962502266293768, guid: 9b1dbe1cebe5a934ba95cb03cde1bcb6, type: 2}
+  ballPrefab: {fileID: 1655809154320004, guid: ba4c3844f4d2948408c4685ce2e9e733, type: 2}
   m_camera: {fileID: 742218194}
   onStartPlaceBombs:
     m_PersistentCalls:
@@ -748,8 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad11a135a05802b459393d643577982d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 5
-  height: 5
+  width: 2
+  height: 2
   tileSize: {x: 5, y: 5}
   origin: {x: 0, y: 0, z: 0}
   mazeHeight: 2
