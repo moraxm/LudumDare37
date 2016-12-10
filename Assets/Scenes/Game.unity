@@ -737,8 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad11a135a05802b459393d643577982d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 5
+  height: 5
   tileSize: {x: 5, y: 5}
   origin: {x: 0, y: 0, z: 0}
   mazeHeight: 2
