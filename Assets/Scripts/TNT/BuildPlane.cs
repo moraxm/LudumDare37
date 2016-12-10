@@ -25,7 +25,7 @@ public class BuildPlane : MonoBehaviour {
         {
             if (TNT.totalTNTs < maxTNTs)
             {
-                GameObject obj = Instantiate<GameObject>(prefab,info.point,Quaternion.identity);
+                Instantiate<GameObject>(prefab,info.point,Quaternion.identity);
             }
 
         }
