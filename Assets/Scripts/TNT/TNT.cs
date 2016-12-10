@@ -128,7 +128,7 @@ public class TNT : MonoBehaviour
 
     public void OnDestroy()
     {
-        
+        DisableComponents(true);
         m_mouseActions.onFinishAction -= OnFinishMouseAction;
         GameManager.instance.onStartPlaying.RemoveListener(OnStartPlaying);
         GameManager.instance.onStartPlaceBombs.RemoveListener(OnStartPlaceBombs);
