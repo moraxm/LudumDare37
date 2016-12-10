@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    [Header("Intro")]
-    public float m_showingStructureTime = 3.0f;
-    public UnityEvent onStartShowingStructure;
+    [Header("Place bombs")]
+    public UnityEvent onStartPlaceBombs;
 
     [Header("Playing")]
     public UnityEvent onStartPlaying;
@@ -21,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
-        INTRO,
+        PLACE_BOMBS,
         PLAYING,
         SHOWING_AWARD,
         GAME_OVER,
@@ -56,20 +55,21 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        onStartShowingStructure.Invoke();
+        onStartPlaceBombs.Invoke();
         m_mainCamera = Camera.main;
         //m_mainCamera.enabled = false;
-        m_gameState = GameState.INTRO;
+        m_gameState = GameState.PLACE_BOMBS;
         m_acumTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space)) StartGame();
         switch (m_gameState)
         {
-            case GameState.INTRO:
-                ShowingStructureUpdate();
+            case GameState.PLACE_BOMBS:
+                PlaceBombosUpdate();
                 break;
             case GameState.PLAYING:
                 PlayingUpdate();
@@ -111,18 +111,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void ShowingStructureUpdate()
+    private void PlaceBombosUpdate()
     {
-        m_acumTime += Time.deltaTime;
-        if (m_acumTime > m_showingStructureTime)
-        {
-            m_gameState = GameState.PLAYING;
-            onStartPlaying.Invoke();
-        }
+
     }
 
     public void StartGame()
     {
-
+        m_gameState = GameState.PLAYING;
+        onStartPlaying.Invoke();
     }
 }
