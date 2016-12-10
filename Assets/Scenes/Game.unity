@@ -568,9 +568,11 @@ MonoBehaviour:
   width: 5
   height: 5
   tileSize: {x: 5, y: 5}
-  origin: {x: 0, y: 0}
-  yPositionForWholeMaze: 0
+  origin: {x: 0, y: 0, z: 0}
+  mazeHeight: 2
   wallPrefab: {fileID: 1673207594089870, guid: 0509e4279bf0ba240a41e8b63db15908, type: 2}
+  cornerPrefab: {fileID: 1054487128975846, guid: 3ab2946edd1145e4bbc6616005f63834,
+    type: 2}
   floorPrefab: {fileID: 1575816840277404, guid: bf36d911183a1b74ca8fcc9ea5d11999,
     type: 2}
   tilePrefab: {fileID: 0}
