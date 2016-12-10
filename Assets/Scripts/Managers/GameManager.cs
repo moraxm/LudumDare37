@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
         get { return m_gameState; }
     }
     float m_acumTime = 0;
+    public float acumTime
+    {
+        get { return m_acumTime; }
+    }
     Camera m_mainCamera;
 
     static GameManager m_instance;
@@ -112,7 +116,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayingUpdate()
     {
-
+        m_acumTime += Time.deltaTime;
     }
 
     private void PlaceBombosUpdate()
@@ -123,6 +127,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         m_gameState = GameState.PLAYING;
+        m_acumTime = 0;
         onStartPlaying.Invoke();
     }
 }
