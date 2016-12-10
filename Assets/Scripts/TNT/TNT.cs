@@ -51,6 +51,8 @@ public class TNT : MonoBehaviour
 
     void OnStartPlaceBombs()
     {
+        m_acumTime = 0;
+        m_textComponent.text = m_explosionTime.ToString() + "s";
         m_meshRenderer.enabled = true;
         explosionObject.Stop();
     }
@@ -106,9 +108,14 @@ public class TNT : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
+    public void OnDisable()
     {
         --s_totalTNTs;
+    }
+
+    public void OnDestroy()
+    {
+        
         m_mouseActions.onFinishAction -= OnFinishMouseAction;
         GameManager.instance.onStartPlaying.RemoveListener(OnStartPlaying);
         GameManager.instance.onStartPlaceBombs.RemoveListener(OnStartPlaceBombs);
@@ -128,6 +135,7 @@ public class TNT : MonoBehaviour
         explosionObject.gameObject.SetActive(true);
         explosionObject.Play();
         m_meshRenderer.enabled = false;
+        m_textComponent.text = "";
     }
 
     public void increaseExplosionLevel()
