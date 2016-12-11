@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4d51ecefff169428c19bc90a05f494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToNextLevel: 3.5
 --- !u!1001 &554866384
 Prefab:
   m_ObjectHideFlags: 0
@@ -449,19 +450,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223497446219009728, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 742218194}
-    - target: {fileID: 114018176993580682, guid: 66ed7568cc27cc946986762b0ab60f49,
+    - target: {fileID: 114896292268268860, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 465784266}
-    - target: {fileID: 114706293040363904, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 465784266}
     - target: {fileID: 114864478086333140, guid: 66ed7568cc27cc946986762b0ab60f49,
@@ -469,11 +460,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 465784266}
-    - target: {fileID: 114896292268268860, guid: 66ed7568cc27cc946986762b0ab60f49,
+    - target: {fileID: 114706293040363904, guid: 66ed7568cc27cc946986762b0ab60f49,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 465784266}
+    - target: {fileID: 114018176993580682, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 465784266}
+    - target: {fileID: 223497446219009728, guid: 66ed7568cc27cc946986762b0ab60f49,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 742218194}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ed7568cc27cc946986762b0ab60f49, type: 2}
   m_IsPrefabParent: 0

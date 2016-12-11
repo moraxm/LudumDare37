@@ -36,11 +36,10 @@ public class BallManager : MonoBehaviour
             return;
         }
 
-        if (m_rigidbody.velocity.magnitude <= minVelocity)
-        {
-            EndGame();
-            m_waitForStop = false;
-        }
+		if (inTrigger || m_rigidbody.velocity.magnitude <= minVelocity) {
+			EndGame();
+			m_waitForStop = false;
+		}
     }
 
     public void EndGame()
