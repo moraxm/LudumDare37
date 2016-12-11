@@ -5,7 +5,7 @@ using UnityEngine;
 public class Music : MonoBehaviour {
 
 	void Start () {
-		UtilSound.instance.StopSound("Music");
-		UtilSound.instance.PlaySound("Music");
+		UtilSound.instance.StopSound("music");
+		UtilSound.instance.PlaySound("music", 0.075f, true);
 	}
 }
