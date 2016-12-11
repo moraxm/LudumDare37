@@ -10,8 +10,8 @@ public class MazeInstantiator : MonoBehaviour
 
     private MazeManager mazeManager = null;
 
-    public int width = 5;
-    public int height = 5;
+    private int width = 5;
+    private int height = 5;
     public Vector2 tileSize = new Vector2(5.0f, 5.0f);
     public Vector3 origin = Vector3.zero;
     public float mazeHeight = 2.0f;
@@ -29,6 +29,9 @@ public class MazeInstantiator : MonoBehaviour
         {
             Debug.LogError("[MazeInstantiator.cs] Error. Missing a public property in MazeInstantiator");
         }
+		int currentLevel = LevelManager.instance.CurrentLevel;
+		width = currentLevel + 2;
+		height = currentLevel + 2;
         InstantiateMaze();
     }
 

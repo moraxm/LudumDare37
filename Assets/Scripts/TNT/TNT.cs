@@ -70,6 +70,7 @@ public class TNT : MonoBehaviour
     void OnStartPlaceBombs()
     {
         m_acumTime = 0;
+		enabled = false;
         DisableComponents(false);
         explosionObject.Stop();
     }

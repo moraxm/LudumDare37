@@ -289,34 +289,12 @@ MonoBehaviour:
       PublicKeyToken=null
   onPauseGame:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 991037171}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onResumeGame:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 991037171}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &465784267
@@ -537,11 +515,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1902578759672374, guid: 66ed7568cc27cc946986762b0ab60f49,
     type: 2}
   m_PrefabInternal: {fileID: 991037169}
---- !u!1 &991037171 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1365088789816746, guid: 66ed7568cc27cc946986762b0ab60f49,
-    type: 2}
-  m_PrefabInternal: {fileID: 991037169}
 --- !u!114 &991037172 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114698149644855870, guid: 66ed7568cc27cc946986762b0ab60f49,
@@ -557,8 +530,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1024845611}
   - component: {fileID: 1024845610}
+  - component: {fileID: 1024845612}
   m_Layer: 0
-  m_Name: UtilSound
+  m_Name: DontDestroyOnLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,6 +562,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024845612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024845609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217c0e1bb93761747ae6b84025bbc2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1322998574
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,8 +662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad11a135a05802b459393d643577982d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 2
-  height: 2
   tileSize: {x: 5, y: 5}
   origin: {x: 0, y: 0, z: 0}
   mazeHeight: 2
