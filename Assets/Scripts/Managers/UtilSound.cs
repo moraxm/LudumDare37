@@ -31,7 +31,7 @@ public class UtilSound : MonoBehaviour {
         }
     }
 
-    public void PlaySound(string name, bool loop=false) {
+    public void PlaySound(string name, float volume=1.0f, bool loop=false) {
         string path = DEFAULT_SOUNDS_PATH + name;
         AudioClip clip = Resources.Load<AudioClip>(path); // Load sound from disk
         if (clip == null) { Debug.LogError("[UtilSound] Error. Clip " + path + " was no found"); return; } // Exit of the sound was not found
@@ -40,6 +40,7 @@ public class UtilSound : MonoBehaviour {
         newObject.transform.parent = gameObject.transform; // UtilSound is the parent of the new object
         newObject.name = name; // Assign the given clip name
         newSource.clip = clip; // Assign clip to new AudioSource
+		newSource.volume = volume;
         newSource.loop = loop; // Assign given loop property
         newSource.Play(); // Play the sound
         sounds.Add(newObject); // Store the new AudioSource
