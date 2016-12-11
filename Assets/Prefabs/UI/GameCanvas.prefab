@@ -1827,7 +1827,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: Change Map
 --- !u!114 &114947689216677006
 MonoBehaviour:
   m_ObjectHideFlags: 1
