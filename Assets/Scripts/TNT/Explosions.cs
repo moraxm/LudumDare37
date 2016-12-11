@@ -20,6 +20,7 @@ public class Explosions : MonoBehaviour
         m_explosionLowLevel.level = ExplosionData.ExplosionsLevel.LOW;
         m_explosionMidLevel.level = ExplosionData.ExplosionsLevel.MID;
         m_explosionHighLevel.level = ExplosionData.ExplosionsLevel.HIGH;
+        TNT.ResetTNTStatic();
     }
 
     

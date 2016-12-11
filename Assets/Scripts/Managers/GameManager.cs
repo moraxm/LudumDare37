@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         go.transform.position = new Vector3(0, 0, 0);
 		go.name = "Player";
         m_ballManager = go.GetComponent<BallManager>();
-        m_pause = false;
+        PauseGame(false);
     }
 
     // Update is called once per frame
