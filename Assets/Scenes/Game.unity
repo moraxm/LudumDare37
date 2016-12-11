@@ -233,6 +233,38 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  onPauseGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1295542100}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onResumeGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1295542100}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &513854145
 Prefab:
   m_ObjectHideFlags: 0
@@ -459,31 +491,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223497446219009728, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 742218194}
-    - target: {fileID: 114751333744873018, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 465784266}
     - target: {fileID: 114234977542727310, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 465784266}
-    - target: {fileID: 114742868948681608, guid: 66ed7568cc27cc946986762b0ab60f49,
+    - target: {fileID: 114751333744873018, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114742868948681608, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_Text
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 465784266}
+    - target: {fileID: 223497446219009728, guid: 66ed7568cc27cc946986762b0ab60f49,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 742218194}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ed7568cc27cc946986762b0ab60f49, type: 2}
   m_IsPrefabParent: 0
@@ -538,6 +560,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1295542100 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1365088789816746, guid: 66ed7568cc27cc946986762b0ab60f49,
+    type: 2}
+  m_PrefabInternal: {fileID: 991037169}
 --- !u!1 &1322998574
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class BuildPlane : MonoBehaviour {
         {
             if (TNT.totalTNTs < maxTNTs)
             {
-				GameObject tnt = Instantiate<GameObject>(prefab,info.point,Quaternion.identity) as GameObject;
+				GameObject tnt = Instantiate<GameObject>(prefab,info.point,prefab.transform.rotation) as GameObject;
 				Vector3 position = tnt.transform.localPosition;
 				position.y = position.y + tnt.GetComponent<Renderer>().bounds.size.y / 2.0f;
 				tnt.transform.localPosition = position;
