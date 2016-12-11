@@ -106,3 +106,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1262345236131006, guid: cb2dd1c3648b5034db089e209ec0d178, type: 2}
   maxTNTs: 10
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 2
+      inSlope: 0
+      outSlope: 3
+      tangentMode: 65
+    - serializedVersion: 2
+      time: 1
+      value: 5
+      inSlope: 3
+      outSlope: 3
+      tangentMode: 69
+    - serializedVersion: 2
+      time: 2
+      value: 8
+      inSlope: 3
+      outSlope: 2.9790802
+      tangentMode: 5
+    - serializedVersion: 2
+      time: 5.0885706
+      value: 26.810648
+      inSlope: 8.909403
+      outSlope: 8.909403
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
