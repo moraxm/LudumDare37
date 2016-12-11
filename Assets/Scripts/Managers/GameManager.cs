@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject ballPrefab;
+	public GameObject ballPrefab = null;
     private BallManager m_ballManager;
     public Camera m_camera;
 
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         m_acumTime = 0;
         GameObject go = Instantiate(ballPrefab);
         go.transform.position = new Vector3(0, 0, 0);
+		go.name = "Player";
         m_ballManager = go.GetComponent<BallManager>();
     }
 

@@ -10,7 +10,7 @@ public class TNT : MonoBehaviour
     ExplosionData m_explosion;
     float m_acumTime;
     [SerializeField]
-    int m_explosionTime;
+    float m_explosionTime;
     private Explosions m_explosions;
     private MeshRenderer m_meshRenderer;
     MouseActionsController m_mouseActions;
@@ -96,7 +96,7 @@ public class TNT : MonoBehaviour
     {
         if (m_explosionTime > 0)
         {
-            --m_explosionTime;
+            m_explosionTime -= 0.5f;
             m_textComponent.text = m_explosionTime.ToString() + "s";
         }
         
@@ -104,7 +104,7 @@ public class TNT : MonoBehaviour
 
     private void increaseTime()
     {
-        ++m_explosionTime;
+        m_explosionTime += 0.5f;
         m_textComponent.text = m_explosionTime.ToString() + "s";
     }
 
