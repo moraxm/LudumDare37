@@ -133,7 +133,8 @@ public class GameManager : MonoBehaviour
             m_gameState = GameState.PLACE_BOMBS;
             onStartPlaceBombs.Invoke();
             m_ballManager.transform.position = Vector3.zero;
-            m_ballManager.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            m_ballManager.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			m_ballManager.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
     }
     public void LoseGame()
