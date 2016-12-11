@@ -6,9 +6,13 @@ public class BuildPlane : MonoBehaviour {
     public GameObject prefab;
 	[HideInInspector]
     public int maxTNTs = 2;
+    public AnimationCurve curve;
 	// Use this for initialization
-	void Start () {
-		maxTNTs = LevelManager.instance.CurrentLevel / 3 + 2;
+	void Start () 
+    {
+        int size = LevelManager.instance.CurrentLevel / 3;
+        //maxTNTs = size + 2 * (int)(Mathf.Pow(2, size));
+        maxTNTs = (int)curve.Evaluate(size);
 	}
 	
 	// Update is called once per frame
