@@ -172,7 +172,7 @@ Prefab:
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.48522133
+      value: 0.39563128
       objectReference: {fileID: 0}
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
@@ -182,7 +182,7 @@ Prefab:
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.582
+      value: 0.4923
       objectReference: {fileID: 0}
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
@@ -1423,8 +1423,8 @@ RectTransform:
   m_Father: {fileID: 938742839}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.63000005}
-  m_AnchorMax: {x: 0.9, y: 0.92}
+  m_AnchorMin: {x: 0, y: 0.5155162}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1447,7 +1447,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f7a8fccbde4cf754fba4a320d008cdac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5001c57f0eae9df4f964715f9da4173f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1593,7 +1593,7 @@ Prefab:
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.29155752
+      value: 0.24900001
       objectReference: {fileID: 0}
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
@@ -1603,7 +1603,7 @@ Prefab:
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.39200002
+      value: 0.3495
       objectReference: {fileID: 0}
     - target: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
         type: 2}
