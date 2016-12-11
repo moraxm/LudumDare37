@@ -548,8 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bc23dc153dcee4e8de716e2edec1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_minTimeToDrag: 0.5
-  m_distanceToDetectDrag: 30
+  m_minTimeToDrag: 0.3
+  m_distanceToDetectDrag: 20
   m_timeToDetectHold: 1
 --- !u!114 &114773366114616980
 MonoBehaviour:
