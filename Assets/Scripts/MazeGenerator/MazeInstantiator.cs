@@ -64,11 +64,9 @@ public class MazeInstantiator : MonoBehaviour
 
         int endLineX = width - 1;
         int endLineY = height - 1;
-		// Reusing variables for End line
-		scale.x = tileSize.x;
-		scale.y = 0.025f;
-		scale.z = tileSize.y;
 
+		// Reusing variables for End line
+		scale = new Vector3(tileSize.x, 1.0f, tileSize.y);
 		pos.x = origin.x + (width - 1) * tileSize.x;
 		pos.y += 0.14f;
 		pos.z = origin.y + (height - 1) * tileSize.y;
