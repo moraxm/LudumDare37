@@ -79,7 +79,8 @@ public class TNT : MonoBehaviour
 
         switch (action)
         {
-            case MouseActionsController.MouseAction.HOLD:
+			case MouseActionsController.MouseAction.HOLD:
+				UtilSound.instance.PlaySound("recoverBomb", 0.4f);
                 Destroy(gameObject);
                 break;
             case MouseActionsController.MouseAction.CLICK:
@@ -100,6 +101,7 @@ public class TNT : MonoBehaviour
     {
         if (m_explosionTime > 0)
         {
+			UtilSound.instance.PlaySound("decreaseTime", 0.1f);
             m_explosionTime -= 0.5f;
             m_textComponent.text = m_explosionTime.ToString("0.0");
         }
@@ -108,6 +110,7 @@ public class TNT : MonoBehaviour
 
     private void increaseTime()
     {
+		UtilSound.instance.PlaySound("increaseTime", 0.1f);
         m_explosionTime += 0.5f;
         m_textComponent.text = m_explosionTime.ToString("0.0");
     }

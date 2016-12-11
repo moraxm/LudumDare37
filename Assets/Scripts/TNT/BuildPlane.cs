@@ -34,6 +34,9 @@ public class BuildPlane : MonoBehaviour {
 				Vector3 position = tnt.transform.localPosition;
 				position.y = position.y + tnt.GetComponent<Renderer>().bounds.size.y / 2.0f;
 				tnt.transform.localPosition = position;
+				string clip = "placeBomb";
+				clip += (Random.Range(1, 4)).ToString();
+				UtilSound.instance.PlaySound(clip, 0.75f);
             }
 
         }
