@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BuildPlane : MonoBehaviour {
     public GameObject prefab;
-    public int maxTNTs = 3;
+	[HideInInspector]
+    public int maxTNTs = 2;
 	// Use this for initialization
 	void Start () {
-		
+		maxTNTs = LevelManager.instance.CurrentLevel / 3 + 2;
 	}
 	
 	// Update is called once per frame
