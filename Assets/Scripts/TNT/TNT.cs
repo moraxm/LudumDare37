@@ -61,7 +61,7 @@ public class TNT : MonoBehaviour
         m_meshRenderer.enabled = !disable;
         if (disable)
             --s_totalTNTs;
-        else
+        else if(!enabled)
             ++s_totalTNTs;
 
         Debug.Log("Total Tnts: " + totalTNTs);
@@ -70,8 +70,8 @@ public class TNT : MonoBehaviour
     void OnStartPlaceBombs()
     {
         m_acumTime = 0;
-		enabled = false;
         DisableComponents(false);
+		enabled = false;
         explosionObject.Stop();
     }
 
