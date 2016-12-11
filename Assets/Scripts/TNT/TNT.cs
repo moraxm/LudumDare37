@@ -38,7 +38,7 @@ public class TNT : MonoBehaviour
         m_mouseActions.onFinishAction += OnFinishMouseAction;
 
         m_textComponent = GetComponentInChildren<Text>();
-        m_textComponent.text = m_explosionTime.ToString() + "s";
+        m_textComponent.text = m_explosionTime.ToString("0.0") + "s";
         m_textComponent.color = m_explosion.color;
 
         GameManager.instance.onStartPlaying.AddListener(OnStartPlaying);
@@ -57,7 +57,7 @@ public class TNT : MonoBehaviour
 
     void DisableComponents(bool disable)
     {
-        m_textComponent.text = disable ? "" : m_explosionTime.ToString() + "s"; ;
+        m_textComponent.text = disable ? "" : m_explosionTime.ToString("0.0") + "s"; ;
         m_meshRenderer.enabled = !disable;
         if (disable)
             --s_totalTNTs;
@@ -103,7 +103,7 @@ public class TNT : MonoBehaviour
         if (m_explosionTime > 0)
         {
             m_explosionTime -= 0.5f;
-            m_textComponent.text = m_explosionTime.ToString() + "s";
+            m_textComponent.text = m_explosionTime.ToString("0.0") + "s";
         }
         
     }
@@ -111,14 +111,14 @@ public class TNT : MonoBehaviour
     private void increaseTime()
     {
         m_explosionTime += 0.5f;
-        m_textComponent.text = m_explosionTime.ToString() + "s";
+        m_textComponent.text = m_explosionTime.ToString("0.0") + "s";
     }
 
     // Update is called once per frame
     void Update()
     {
         m_acumTime += Time.deltaTime;
-        m_textComponent.text = (m_explosionTime - m_acumTime).ToString() + "s";
+        m_textComponent.text = (m_explosionTime - m_acumTime).ToString("0.0") + "s";
         if (m_acumTime >= m_explosionTime)
         {
             Explosion();
