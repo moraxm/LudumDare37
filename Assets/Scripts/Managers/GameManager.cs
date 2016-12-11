@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
     }
     public void Retry()
     {
-        if (m_gameState != GameState.PLACE_BOMBS)
+        if (m_gameState != GameState.PLACE_BOMBS && m_gameState != GameState.WIN_GAME)
         {
             m_gameState = GameState.PLACE_BOMBS;
             onStartPlaceBombs.Invoke();
