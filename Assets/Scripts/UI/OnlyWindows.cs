@@ -6,7 +6,7 @@ public class OnlyWindows : MonoBehaviour
 {
     public void Awake()
     {
-#if !UNITY_STANDALONE
+#if !UNITY_STANDALONE && !UNITY_ANDROID
         gameObject.SetActive(false);
 #endif
     }
