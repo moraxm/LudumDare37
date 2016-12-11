@@ -246,7 +246,7 @@ MonoBehaviour:
   OnWinGame:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 991037173}
+      - m_Target: {fileID: 991037172}
         m_MethodName: PlayVictory
         m_Mode: 1
         m_Arguments:
@@ -262,7 +262,7 @@ MonoBehaviour:
   onLoseGame:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 991037173}
+      - m_Target: {fileID: 991037172}
         m_MethodName: PlayGameOver
         m_Mode: 1
         m_Arguments:
@@ -491,31 +491,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223497446219009728, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 742218194}
-    - target: {fileID: 114751333744873018, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 465784266}
     - target: {fileID: 114234977542727310, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 465784266}
-    - target: {fileID: 114742868948681608, guid: 66ed7568cc27cc946986762b0ab60f49,
+    - target: {fileID: 114751333744873018, guid: 66ed7568cc27cc946986762b0ab60f49,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114742868948681608, guid: 66ed7568cc27cc946986762b0ab60f49,
-        type: 2}
-      propertyPath: m_Text
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 465784266}
+    - target: {fileID: 223497446219009728, guid: 66ed7568cc27cc946986762b0ab60f49,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 742218194}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ed7568cc27cc946986762b0ab60f49, type: 2}
   m_IsPrefabParent: 0
@@ -529,9 +519,9 @@ GameObject:
   m_PrefabParentObject: {fileID: 1365088789816746, guid: 66ed7568cc27cc946986762b0ab60f49,
     type: 2}
   m_PrefabInternal: {fileID: 991037169}
---- !u!114 &991037173 stripped
+--- !u!114 &991037172 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114466269209828248, guid: 66ed7568cc27cc946986762b0ab60f49,
+  m_PrefabParentObject: {fileID: 114698149644855870, guid: 66ed7568cc27cc946986762b0ab60f49,
     type: 2}
   m_PrefabInternal: {fileID: 991037169}
   m_Script: {fileID: 11500000, guid: f7229d775b2369143b750f2b191056ba, type: 3}
