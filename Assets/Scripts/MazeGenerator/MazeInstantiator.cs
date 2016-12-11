@@ -30,8 +30,8 @@ public class MazeInstantiator : MonoBehaviour
             Debug.LogError("[MazeInstantiator.cs] Error. Missing a public property in MazeInstantiator");
         }
 		int currentLevel = LevelManager.instance.CurrentLevel;
-		width = currentLevel + 2;
-		height = currentLevel + 2;
+		width = currentLevel / 3 + 2;
+		height = currentLevel / 3 + 2;
         InstantiateMaze();
     }
 
