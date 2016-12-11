@@ -45,6 +45,11 @@ public class TNT : MonoBehaviour
         GameManager.instance.onStartPlaceBombs.AddListener(OnStartPlaceBombs);
     }
 
+    public static void ResetTNTStatic()
+    {
+        s_totalTNTs = 0;
+    }
+
     void OnStartPlaying()
     {
         enabled = true;
