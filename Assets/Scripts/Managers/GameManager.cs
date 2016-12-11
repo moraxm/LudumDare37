@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     [Header("Lose game")]
     public UnityEvent onLoseGame;
 
+    [Header("Pause")]
+    public UnityEvent onPauseGame;
+    public UnityEvent onResumeGame;
+
     public enum GameState
     {
         PLACE_BOMBS,
@@ -29,6 +33,7 @@ public class GameManager : MonoBehaviour
         WAITING_BALL,
         WIN_GAME,
         LOSE_GAME,
+        PAUSE,
     }
     GameState m_gameState;
     public GameState state
@@ -42,6 +47,8 @@ public class GameManager : MonoBehaviour
     }
 
     static GameManager m_instance;
+    private GameState m_prevState;
+    private bool m_pause;
     public static GameManager instance
     {
         get
@@ -73,11 +80,13 @@ public class GameManager : MonoBehaviour
         go.transform.position = new Vector3(0, 0, 0);
 		go.name = "Player";
         m_ballManager = go.GetComponent<BallManager>();
+        m_pause = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(!m_pause);
         if (Input.GetKeyDown(KeyCode.Space)) StartGame();
         switch (m_gameState)
         {
@@ -96,12 +105,20 @@ public class GameManager : MonoBehaviour
             case GameState.WIN_GAME:
                 WinGameUpdate();
                 break;
+            case GameState.PAUSE:
+                PauseUpdate();
+                break;
             default:
                 break;
         }
     }
 
+
     #region states
+    private void PauseUpdate()
+    {
+        
+    }
     private void PlayingUpdate()
     {
         m_acumTime += Time.deltaTime;
@@ -120,6 +137,26 @@ public class GameManager : MonoBehaviour
     private void LoseGameUpdate() { }
     private void WinGameUpdate() { }
     #endregion
+    public void PauseGame(bool pause)
+    {
+        Time.timeScale = pause ? 0 : 1;
+        if (pause)
+        {
+            m_pause = true;
+            Time.timeScale = 0;
+            m_prevState = state;
+            m_gameState = GameState.PAUSE;
+            onPauseGame.Invoke();
+        }
+        else
+        {
+            m_pause = false;
+            Time.timeScale = 1;
+            m_gameState = m_prevState;
+            onResumeGame.Invoke();
+        }
+    }
+
     public void StartGame()
     {
         m_gameState = GameState.PLAYING;
@@ -133,7 +170,8 @@ public class GameManager : MonoBehaviour
             m_gameState = GameState.PLACE_BOMBS;
             onStartPlaceBombs.Invoke();
             m_ballManager.transform.position = Vector3.zero;
-            m_ballManager.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            m_ballManager.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			m_ballManager.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
     }
     public void LoseGame()
