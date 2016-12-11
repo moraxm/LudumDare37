@@ -7,15 +7,23 @@ public class UtilSound : MonoBehaviour {
 
     const string DEFAULT_SOUNDS_PATH = "Audio/Sounds/";
 
+    public AudioClip[] clips;
+
     public static UtilSound instance = null;
 
     private List<GameObject> sounds = null;
+    private Dictionary<string, AudioClip> clipsDictionary;
 
     void Awake() {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             sounds = new List<GameObject>();
+            clipsDictionary = new Dictionary<string, AudioClip>();
+            foreach (AudioClip ac in clips)
+            {
+                clipsDictionary.Add(ac.name, ac);
+            }
         } else {
             Destroy(this); // Destroy the newest UtilSound script instance
         }
@@ -33,7 +41,8 @@ public class UtilSound : MonoBehaviour {
 
     public void PlaySound(string name, float volume=1.0f, bool loop=false) {
         string path = DEFAULT_SOUNDS_PATH + name;
-        AudioClip clip = Resources.Load<AudioClip>(path); // Load sound from disk
+        //AudioClip clip = Resources.Load<AudioClip>(path); // Load sound from disk
+        AudioClip clip = clipsDictionary[name];
         if (clip == null) { Debug.LogError("[UtilSound] Error. Clip " + path + " was no found"); return; } // Exit of the sound was not found
         GameObject newObject = new GameObject(); // New scene object
         AudioSource newSource = newObject.AddComponent<AudioSource>(); // Create a new AudioSouce and set it to the new object
