@@ -300,7 +300,8 @@ Prefab:
       propertyPath: m_FontData.m_LineSpacing
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 10bdd6a8ebc511a47b9b880f842a4a77, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &14854405 stripped
@@ -663,6 +664,22 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224088541980944690, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
     type: 2}
   m_PrefabInternal: {fileID: 484537358}
+--- !u!1 &484537360 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1679596008397940, guid: 10bdd6a8ebc511a47b9b880f842a4a77,
+    type: 2}
+  m_PrefabInternal: {fileID: 484537358}
+--- !u!114 &484537361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484537360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b8c18e1a866fb45bd14c6632825b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &628703675
 GameObject:
   m_ObjectHideFlags: 0
