@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) PauseGame(!m_pause);
-        if (Input.GetKeyDown(KeyCode.Space)) StartGame();
         switch (m_gameState)
         {
             case GameState.PLACE_BOMBS:
