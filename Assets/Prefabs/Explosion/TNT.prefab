@@ -660,7 +660,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -730112835
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3231,7 +3231,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1929240868
+  randomSeed: 485589569
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5772,7 +5772,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -1279983011
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8301,7 +8301,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -826406869
+  randomSeed: 1234788847
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10842,7 +10842,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 1658525215
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13377,7 +13377,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -2110746412
+  randomSeed: 1975992506
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15882,7 +15882,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -1121632272
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18471,7 +18471,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1622012426
+  randomSeed: 728254203
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20976,7 +20976,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -223841393
   InitialModule:
     serializedVersion: 3
     enabled: 1
